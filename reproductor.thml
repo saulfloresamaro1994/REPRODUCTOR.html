@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Terra Máster</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .player {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="player">
+        <h1>Reproductor de Terra Máster</h1>
+        <video id="videoPlayer" controls>
+            Tu navegador no soporta la reproducción de video.
+        </video>
+        <input type="text" id="videoUrl" placeholder="Pega el enlace de la película aquí">
+        <button onclick="loadVideo()">Cargar Video</button>
+    </div>
+
+    <script>
+        function loadVideo() {
+            const videoUrl = document.getElementById('videoUrl').value;
+            const videoPlayer = document.getElementById('videoPlayer');
+
+            if (videoUrl) {
+                videoPlayer.src = videoUrl;
+                videoPlayer.load();
+                videoPlayer.play();
+            } else {
+                alert('Por favor, introduce un enlace válido.');
+            }
+        }
+    </script>
+</body>
+</html>
