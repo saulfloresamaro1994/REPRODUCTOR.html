@@ -109,7 +109,7 @@
                 document.getElementById('playerContainer').classList.remove('hidden');
 
                 const videoPlayer = document.getElementById('videoPlayer');
-                videoPlayer.src = 'https://qdihmnfwepxni.acek-cdn.com/hls2/01/04059/l0bdiu2naizg_l/master.m3u8?t=JDjGcyUdA3pqby8nX79932is5RU9gggZXQwNRpaDNc0&s=1741982835&e=129600&f=20299406&srv=yCdcGNsOcuCU&i=0.4&sp=500&p1=yCdcGNsOcuCU&p2=yCdcGNsOcuCU&asn=8151'; // Enlace M3U8 de prueba
+                videoPlayer.src = 'http://mxcuentas.ddns.net:8096/Videos/189090/stream.mp4?static=true&api_key=efc8a8df6e1c4a50992af3bf3dd71903&VideoCodec=h264&AudioCodec='; // Enlace M3U8 de prueba
                 videoPlayer.load();
                 videoPlayer.play();
             } else {
