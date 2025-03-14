@@ -53,7 +53,7 @@
         <video id="videoPlayer" controls>
             Tu navegador no soporta la reproducción de video.
         </video>
-        <input type="text" id="videoUrl" placeholder="Pega el enlace de la película aquí">
+        <input type="text" id="videoUrl" placeholder="http://192.168.1.66:8181/emby/videos/1135626/master.m3u8?DeviceId=345fa86c-3483-4957-8d0b-1a8041dc4746&MediaSourceId=700ef064bdb896526ce0c767f5a6badb&PlaySessionId=b233d09174304fccb14b9dfa9a2d707c&api_key=5069ca0dbd0e44d19dbda4d45a1078b0&VideoCodec=h264,h265,hevc,av1&AudioCodec=mp3,aac&VideoBitrate=59744000&AudioBitrate=256000&MaxWidth=1920&AudioStreamIndex=1&SubtitleStreamIndex=3&SubtitleMethod=Hls&TranscodingMaxAudioChannels=2&SegmentContainer=ts&MinSegments=1&BreakOnNonKeyFrames=True&SubtitleStreamIndexes=3,4&ManifestSubtitles=vtt&h264-profile=high,main,baseline,constrainedbaseline,high10&h264-level=62&hevc-codectag=hvc1,hev1,hevc,hdmv&TranscodeReasons=AudioCodecNotSupported">
         <button onclick="loadVideo()">Cargar Video</button>
     </div>
 
