@@ -3,73 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reproductor de Terra Máster</title>
+    <title>Panel de Registro y Reproductor</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            color: white;
         }
-        .player {
-            background-color: #fff;
+
+        .glass-container {
+            background: rgba(0, 255, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
         }
-        video {
+
+        .glass-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .glass-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .glass-container input {
             width: 100%;
-            max-width: 600px;
-            border-radius: 10px;
-        }
-        input[type="text"] {
-            width: 80%;
             padding: 10px;
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px 20px;
-            margin-top: 10px;
+            margin-bottom: 15px;
             border: none;
-            background-color: #007bff;
-            color: #fff;
             border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .glass-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(0, 255, 0, 0.3);
+            color: white;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #0056b3;
+
+        .glass-container button:hover {
+            background: rgba(0, 255, 0, 0.5);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #playerContainer {
+            margin-top: 20px;
+        }
+
+        #videoPlayer {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="player">
-        <h1>Reproductor de Terra Máster</h1>
+    <div class="glass-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <label for="username">Nombre de acceso:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+    <div id="playerContainer" class="hidden">
+        <h2>cars 2</h2>
         <video id="videoPlayer" controls>
+            <source src="" type="application/x-mpegURL">
             Tu navegador no soporta la reproducción de video.
         </video>
-        <input type="text" id="videoUrl" placeholder="http://192.168.1.66:8181/emby/videos/1135626/master.m3u8?DeviceId=345fa86c-3483-4957-8d0b-1a8041dc4746&MediaSourceId=700ef064bdb896526ce0c767f5a6badb&PlaySessionId=b233d09174304fccb14b9dfa9a2d707c&api_key=5069ca0dbd0e44d19dbda4d45a1078b0&VideoCodec=h264,h265,hevc,av1&AudioCodec=mp3,aac&VideoBitrate=59744000&AudioBitrate=256000&MaxWidth=1920&AudioStreamIndex=1&SubtitleStreamIndex=3&SubtitleMethod=Hls&TranscodingMaxAudioChannels=2&SegmentContainer=ts&MinSegments=1&BreakOnNonKeyFrames=True&SubtitleStreamIndexes=3,4&ManifestSubtitles=vtt&h264-profile=high,main,baseline,constrainedbaseline,high10&h264-level=62&hevc-codectag=hvc1,hev1,hevc,hdmv&TranscodeReasons=AudioCodecNotSupported">
-        <button onclick="loadVideo()">Cargar Video</button>
     </div>
 
     <script>
-        function loadVideo() {
-            const videoUrl = document.getElementById('videoUrl').value;
-            const videoPlayer = document.getElementById('videoPlayer');
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-            if (videoUrl) {
-                videoPlayer.src = videoUrl;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'Srtelmex' && password === '1234') {
+                document.querySelector('.glass-container').classList.add('hidden');
+                document.getElementById('playerContainer').classList.remove('hidden');
+
+                const videoPlayer = document.getElementById('videoPlayer');
+                videoPlayer.src = 'http://mxcuentas.ddns.net:8096/Videos/204974/stream.mp4?static=true&api_key=efc8a8df6e1c4a50992af3bf3dd71903&VideoCodec=h264&AudioCodec='; // Enlace M3U8 de prueba
                 videoPlayer.load();
                 videoPlayer.play();
             } else {
-                alert('Por favor, introduce un enlace válido.');
+                alert('Nombre de acceso o contraseña incorrectos');
             }
-        }
+        });
     </script>
 </body>
 </html>
